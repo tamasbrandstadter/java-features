@@ -71,12 +71,11 @@ public class Http2Client {
     // and finally the response body
     private static void processResponse(HttpResponse response) {
         System.out.println("Status Code: " + response.statusCode());
-
         System.out.println("Headers:");
 
-        HttpHeaders headers = response.headers();
-        Map<String, List<String>> headerList = headers.map();
-        headerList.forEach((k, v) -> System.out.println("\t" + k + ":" + v));
+        HttpHeaders httpHeaders = response.headers();
+        Map<String, List<String>> headers = httpHeaders.map();
+        headers.forEach((k, v) -> System.out.println("\t" + k + ":" + v));
 
         System.out.println(response.body());
     }
