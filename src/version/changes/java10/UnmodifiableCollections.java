@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 public class UnmodifiableCollections {
 
     public static void main(String[] args) {
+        // Since Java 9 returns an unmodifiable list
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
 
-        // java.util.List, java.util.Map and java.util.Set each got a new static method copyOf(Collection).
+        // In Java 10 java.util.List, java.util.Map and java.util.Set each got a new static method copyOf(Collection).
         // It returns the unmodifiable copy of the given Collection
         // Any attempt to modify such a collection would result in java.lang.UnsupportedOperationException runtime exception.
         List<Integer> copy = List.copyOf(numbers);
@@ -26,8 +27,6 @@ public class UnmodifiableCollections {
             .filter(i -> i % 2 == 0)
             .findFirst()
             .orElseThrow();
-
-
     }
 
 }
