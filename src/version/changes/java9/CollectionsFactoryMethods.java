@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class FactoryMethods {
+public class CollectionsFactoryMethods {
 
     public static void main(String[] args) {
-        // Factory methods for collections
         List<String> trees = List.of("Oak", "Pine", "Teak");
         trees.forEach(System.out::println);
 
