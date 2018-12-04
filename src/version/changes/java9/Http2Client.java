@@ -12,6 +12,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class Http2Client {
 
+    // detailed tutorial: https://www.baeldung.com/java-9-http-client
     // Make a GET request and process the response as a String
     public static void getURLSync(String url) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
