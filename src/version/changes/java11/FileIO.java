@@ -15,8 +15,7 @@ public class FileIO {
         Likewise, for writing a lot of content that may not be present in memory all at once, you use Files::write by passing it an Iterable<String>.
         But what about the easy case where you can handle the entire content as a simple string?
         That hasn’t been terribly convenient because Files::readAllBytes and the matching overload for Files::write operate with byte arrays.
-        If need be, you can also pass a CharSet to readString and OpenOptions to writeString.
-        */
+        If need be, you can also pass a CharSet to readString and OpenOptions to writeString. */
         String haiku = Files.readString(Path.of("haiku.txt"));
         String modified = haiku + "foo";
         Files.writeString(Path.of("haiku-mod.txt"), modified);

@@ -17,7 +17,6 @@ public class LambdaParameterTypeInference {
         final Math finalMultiply = (final var x, final var y) -> x * y;
 
         // illegal cases:
-
         // semi-explicit and semi-implicit types
         // Math divide = (var x, double y) -> x / y;
 
