@@ -24,8 +24,6 @@ public class FactoryMethods {
         // i.e. a function that accepts the length of the array to produce as input and returns an array of that size.
         // That can be expressed succinctly as a constructor reference T[]::new (for concrete T).
         String[] stringsFun = list.toArray(String[]::new);
-
-
     }
 
 }

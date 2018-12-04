@@ -18,8 +18,9 @@ public class MyResource implements AutoCloseable {
     @Override
     public void close() throws Exception {
         System.out.println("Closing resource " + id);
-        if (id == 2 || id == 3)
+        if (id == 2 || id == 3) {
             throw new Exception("Exception in close");
+        }
     }
 
 }
