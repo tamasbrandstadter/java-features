@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Flow;
 import java.util.stream.Stream;
 
 import static java.net.http.HttpClient.Version.HTTP_2;
@@ -31,6 +32,7 @@ public class Http2Client {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         // for more info: https://blog.codefx.org/java/http-2-api-tutorial/
+        // and: https://blog.codefx.org/java/reactive-http-2-requests-responses/
 
         // Besides the HTTP version, connection timeout, and redirect policy, you can also configure the proxy,
         // SSL context and parameters, the authenticator, and cookie handler.
@@ -79,6 +81,61 @@ public class Http2Client {
             .thenApply(body -> body.contains(term))
             .exceptionally(error -> false)
             .thenAccept(found -> System.out.println("Completed " + url + " / found: " + found));
+    }
+
+    private static CompletableFuture<Void> reactiveSearch(HttpClient client, URI url, String term) {
+        HttpRequest request = HttpRequest.newBuilder()
+            .GET()
+            .uri(url)
+            .build();
+        StringFinder finder = new StringFinder(term);
+        client.sendAsync(request, HttpResponse.BodyHandlers.fromLineSubscriber(finder))
+            .exceptionally(ex -> {
+                finder.onError(ex);
+                return null;
+            });
+        return finder
+            .found()
+            .exceptionally(error -> false)
+            .thenAccept(found -> System.out.println(url + ":" + found));
+    }
+
+    private static class StringFinder implements Flow.Subscriber<String> {
+        private final String term;
+        private Flow.Subscription subscription;
+        private final CompletableFuture<Boolean> found = new CompletableFuture<>();
+
+        private StringFinder(String term) {
+            this.term = term;
+        }
+
+        @Override
+        public void onSubscribe(Flow.Subscription subscription) {
+            this.subscription = subscription;
+            this.subscription.request(1);
+        }
+
+        @Override
+        public void onNext(String line) {
+            if (!found.isDone() && line.contains(term)) {
+                found.complete(true);
+            }
+            subscription.request(1);
+        }
+
+        @Override
+        public void onError(Throwable ex) {
+            found.completeExceptionally(ex);
+        }
+
+        @Override
+        public void onComplete() {
+            found.complete(false);
+        }
+
+        public CompletableFuture<Boolean> found() {
+            return found;
+        }
     }
 
 }
