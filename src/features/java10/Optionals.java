@@ -1,4 +1,4 @@
-package version.changes.java10;
+package features.java10;
 
 import java.util.Set;
 

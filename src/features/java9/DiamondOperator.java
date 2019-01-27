@@ -1,6 +1,6 @@
-package version.changes.java9;
+package features.java9;
 
-import version.changes.MyClass;
+import features.MyClass;
 
 public class DiamondOperator {
 

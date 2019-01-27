@@ -1,4 +1,4 @@
-package version.changes.java9;
+package features.java9;
 
 import java.net.URI;
 import java.net.http.HttpClient;

@@ -1,4 +1,4 @@
-package version.changes;
+package features;
 
 public class MyClass<T> {
     private T data;

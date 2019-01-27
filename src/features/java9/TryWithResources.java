@@ -1,6 +1,6 @@
-package version.changes.java9;
+package features.java9;
 
-import version.changes.MyResource;
+import features.MyResource;
 
 public class TryWithResources {
 

@@ -1,4 +1,4 @@
-package version.changes.java11;
+package features.java11;
 
 import java.util.List;
 

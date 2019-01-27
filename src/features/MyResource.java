@@ -1,4 +1,4 @@
-package version.changes;
+package features;
 
 public class MyResource implements AutoCloseable {
     private int id;
