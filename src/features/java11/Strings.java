@@ -1,5 +1,6 @@
 package features.java11;
 
+// https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html
 public class Strings {
 
     public static void main(String[] args) {

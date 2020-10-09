@@ -2,6 +2,7 @@ package features.java9;
 
 import features.MyResource;
 
+// https://openjdk.java.net/jeps/213
 public class TryWithResources {
 
      /* The JDK9 example shows that the resource can be

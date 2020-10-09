@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// https://openjdk.java.net/jeps/269
 public class CollectionsFactoryMethods {
 
     public static void main(String[] args) {

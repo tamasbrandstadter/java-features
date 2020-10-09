@@ -2,6 +2,7 @@ package features.java9;
 
 import features.MyClass;
 
+// https://openjdk.java.net/jeps/213
 public class DiamondOperator {
 
     public static void main(String[] args) {

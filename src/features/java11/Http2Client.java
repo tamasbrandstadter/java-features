@@ -14,6 +14,8 @@ import java.util.stream.Stream;
 import static java.net.http.HttpClient.Version.HTTP_2;
 import static java.util.stream.Collectors.toList;
 
+// https://openjdk.java.net/jeps/321
+// Standard HTTP Client featuring HTTP/2, WebSocket support and non-blocking API
 public class Http2Client {
     private static final List<URI> URLS = Stream.of(
         "https://en.wikipedia.org/wiki/List_of_compositions_by_Franz_Schubert",

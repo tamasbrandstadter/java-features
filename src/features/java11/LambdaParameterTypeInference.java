@@ -1,10 +1,9 @@
 package features.java11;
 
+// https://openjdk.java.net/jeps/323
 public class LambdaParameterTypeInference {
 
     public static void main(String[] args) {
-        // more info: https://openjdk.java.net/jeps/323
-
         // In Java 10, using the var for type inference was forbidden when declaring the parameter list of implicitly typed lambda expressions.
         // In Java 11 we can do things like this:
         Math multiply = (var x, var y) -> x * y;

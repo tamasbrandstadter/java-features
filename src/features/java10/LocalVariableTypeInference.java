@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://openjdk.java.net/jeps/286
 public class LocalVariableTypeInference {
 
     /* var can be used for:

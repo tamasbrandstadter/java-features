@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// https://openjdk.java.net/jeps/269
 public class StreamAPI {
 
     public static void main(String[] args) {
