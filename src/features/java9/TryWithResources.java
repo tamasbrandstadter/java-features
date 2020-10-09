@@ -5,12 +5,12 @@ import features.MyResource;
 // https://openjdk.java.net/jeps/213
 public class TryWithResources {
 
-     /* The JDK9 example shows that the resource can be
-        instantiated outside the try block. However, it must
-        be final OR effectively final for this to compile.
-        This is because the compiler MUST be sure about
-        which close method to call.
-     */
+    /* The JDK9 example shows that the resource can be
+       instantiated outside the try block. However, it must
+       be final OR effectively final for this to compile.
+       This is because the compiler MUST be sure about
+       which close method to call.
+    */
     public static void jdk9(int resID) {
         MyResource res = new MyResource(resID);
         try (res) {

@@ -12,7 +12,7 @@ public class UnmodifiableCollections {
         // Since Java 9 returns an unmodifiable list
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
         Map<String, Integer> integerMap = numbers.stream()
-            .collect(Collectors.toMap(String::valueOf, Function.identity()));
+                .collect(Collectors.toMap(String::valueOf, Function.identity()));
 
         // In Java 10 java.util.List, java.util.Map and java.util.Set each got a new static method copyOf(Collection).
         // It returns the unmodifiable copy of the given Collection
@@ -24,8 +24,8 @@ public class UnmodifiableCollections {
         // java.util.stream.Collectors get additional methods to collect a Stream into unmodifiable List, Map or Set
         // Any attempt to modify such a collection would result in java.lang.UnsupportedOperationException runtime exception.
         List<Integer> evenNumbers = numbers.stream()
-            .filter(i -> i % 2 == 0)
-            .collect(Collectors.toUnmodifiableList());
+                .filter(i -> i % 2 == 0)
+                .collect(Collectors.toUnmodifiableList());
     }
 
 }

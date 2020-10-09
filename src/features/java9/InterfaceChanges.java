@@ -7,9 +7,13 @@ public interface InterfaceChanges {
     String systemStatus = "OK";
 
     String deviceDescription();
+
     void turnOn();
+
     void turnOff();
+
     void reset();
+
     void notifyUser();
 
     default String getStatus() {
@@ -17,7 +21,7 @@ public interface InterfaceChanges {
     }
 
     default String getDetailedStatus() {
-        return buildStatus() +  "--" + systemStatus;
+        return buildStatus() + "--" + systemStatus;
     }
 
     // interfaces now could contain private and private static methods
@@ -26,7 +30,7 @@ public interface InterfaceChanges {
     }
 
     private static String getSystemStatus() {
-        return systemStatus;
+        return "Status "+ systemStatus;
     }
 
 }

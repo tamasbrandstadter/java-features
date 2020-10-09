@@ -12,7 +12,7 @@ public class Strings {
     public static String indent(String s, int n) {
         System.out.println("s before indent " + s);
         String indented = s.indent(n);
-        System.out.println("s after indent "+ indented);
+        System.out.println("s after indent " + indented);
         return indented;
     }
 

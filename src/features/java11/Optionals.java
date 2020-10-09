@@ -9,9 +9,9 @@ public class Optionals {
 
         // in Java 11 you can do !isPresent() like:
         boolean isEmpty = numbers.stream()
-            .filter(x -> x > 6)
-            .findFirst()
-            .isEmpty();
+                .filter(x -> x > 6)
+                .findFirst()
+                .isEmpty();
 
         System.out.println(isEmpty);
     }

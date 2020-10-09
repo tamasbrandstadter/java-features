@@ -17,8 +17,8 @@ public class PatternAsPredicate {
 
         // reminder: splitAsStream() also introduced to Java 8
         Map<String, Long> wordCount = pattern.splitAsStream(message)
-            .map(String::toLowerCase)
-            .collect(Collectors.toUnmodifiableMap(Function.identity(), word -> 1L, Long::sum));
+                .map(String::toLowerCase)
+                .collect(Collectors.toUnmodifiableMap(Function.identity(), word -> 1L, Long::sum));
 
         wordCount.forEach((k, v) -> System.out.println("Key: " + k + " Value: " + v));
 

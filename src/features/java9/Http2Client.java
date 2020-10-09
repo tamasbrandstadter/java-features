@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +19,11 @@ public class Http2Client {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest
-            .newBuilder(new URI(url))
-            .GET()
-            .build();
+                .newBuilder(new URI(url))
+                .GET()
+                .build();
 
-        HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         processResponse(response);
     }
@@ -32,12 +33,12 @@ public class Http2Client {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest
-            .newBuilder(new URI(url))
-            .headers("Foo", "foovalue", "Bar", "barValue")
-            .POST(HttpRequest.BodyPublishers.ofString("Some string"))
-            .build();
+                .newBuilder(new URI(url))
+                .headers("Foo", "foovalue", "Bar", "barValue")
+                .POST(HttpRequest.BodyPublishers.ofString("Some string"))
+                .build();
 
-        HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofFile(Paths.get("fileXXXX.txt")));
+        HttpResponse<Path> response = client.send(request, HttpResponse.BodyHandlers.ofFile(Paths.get("fileXXXX.txt")));
 
         processResponse(response);
     }
@@ -47,9 +48,9 @@ public class Http2Client {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest
-            .newBuilder(new URI(url))
-            .GET()
-            .build();
+                .newBuilder(new URI(url))
+                .GET()
+                .build();
 
         CompletableFuture<HttpResponse<String>> compFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
 
@@ -70,7 +71,7 @@ public class Http2Client {
     // Display the status code
     // All the header data
     // and finally the response body
-    private static void processResponse(HttpResponse response) {
+    private static void processResponse(HttpResponse<?> response) {
         System.out.println("Status Code: " + response.statusCode());
         System.out.println("Headers:");
 

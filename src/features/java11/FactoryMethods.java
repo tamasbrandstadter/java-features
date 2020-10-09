@@ -10,7 +10,7 @@ public class FactoryMethods {
     public static void main(String[] args) {
         // They can be deemed to be the canonical choice as both Paths::get methods forward to them.
         Path tmp = Path.of("/home/nipa", "tmp");
-        Path codefx = Path.of(URI.create("http://codefx.org"));
+        Path codeFx = Path.of(URI.create("http://codefx.org"));
 
         // How do you turn a collection into an array?
         // before Java 11

@@ -26,11 +26,11 @@ public class Strings {
         // we can easily get rid of all leading and trailing whitespace from each String now by strip() which is a Unicode-aware alternative to trim()
         // It uses Java 5’s Character::isWhitespace to determine what to strip.
         // more info: https://bugs.openjdk.java.net/browse/JDK-8200378
-        assert("  f oo  ".strip()).equals("f oo");
+        assert ("  f oo  ".strip()).equals("f oo");
 
         // we can narrow the operation only to trailing/leading whitespace
-        assert("  f oo  ".stripLeading()).equals("f oo  ");
-        assert("  f oo  ".stripTrailing()).equals("  f oo");
+        assert ("  f oo  ".stripLeading()).equals("f oo  ");
+        assert ("  f oo  ".stripTrailing()).equals("  f oo");
 
         // split a String instance into a Stream<String> of separate lines:
         // instead of splitting a String and converting it into a Stream,

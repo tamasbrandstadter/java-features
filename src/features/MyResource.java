@@ -1,7 +1,7 @@
 package features;
 
 public class MyResource implements AutoCloseable {
-    private int id;
+    private final int id;
 
     public MyResource(int id) {
         this.id = id;

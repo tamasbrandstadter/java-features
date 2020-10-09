@@ -11,9 +11,9 @@ public class Optionals {
         // which doesn’t take any argument and throws NoSuchElementException if no value is present.
         // It’s synonymous with and is now the preferred alternative to the existing get() method.
         Integer firstEven = numbers.stream()
-            .filter(i -> i % 2 == 0)
-            .findFirst()
-            .orElseThrow();
+                .filter(i -> i % 2 == 0)
+                .findFirst()
+                .orElseThrow();
     }
 
 }
