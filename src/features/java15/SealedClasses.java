@@ -5,7 +5,7 @@ public class SealedClasses {
 
     // Enhances the Java programming language with sealed classes and interfaces.
     // Sealed classes and interfaces restrict which other classes or interfaces may extend or implement them.
-    public abstract sealed class Shape permits Circle, Rectangle {
+    public abstract sealed class Shape permits Circle, Rectangle, Triangle {
         double area;
     }
 
@@ -16,6 +16,11 @@ public class SealedClasses {
     public final class Rectangle extends Shape {
         double a;
         double b;
+    }
+
+    // A permitted subclass may be declared non-sealed so that its part of the hierarchy reverts to being open for extension by unknown subclasses.
+    public non-sealed class Triangle extends Shape {
+        String name;
     }
 
     // Compile error
