@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class Streams {
 
     // Teeing is used for creating a Collector that is a composite of two downstream collectors
-    public Double avg(int day) {
+    public Double avg() {
         return Stream.of(1, 4, 2, 7, 4, 6, 5)
                 .collect(Collectors.teeing(Collectors.summingDouble(i -> i), Collectors.counting(), (sum, n) -> sum / n));
     }

@@ -1,5 +1,7 @@
 package features.java12;
 
+import java.util.Optional;
+
 // https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/String.html
 public class Strings {
 
@@ -20,6 +22,16 @@ public class Strings {
     public static void parse(String s) {
         Integer i = s.transform(Integer::parseInt);
         System.out.println(i);
+    }
+
+    // Java 12 introduced the new Constable which is implemented by String class.
+    // It represents a type which is constable. A constable type is one whose values are constants that can be represented
+    // in the constant pool of a Java.
+    // Classfile as described in JVMS 4.4, and whose instances can describe themselves nominally as a ConstantDesc
+    // via resolveConstantDesc() method.
+    // describeConstable() returns an Optional containing the nominal descriptor for the instance, which is the instance itself.
+    public static Optional<String> describeConstable(String s) {
+        return s.describeConstable();
     }
 
 }
